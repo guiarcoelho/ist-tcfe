@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2021.3.11)  19 MAR 2021 12:36
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2021.3.11)  21 MAR 2021 20:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -906,7 +906,7 @@ File: md-frame-0.mdf 2013/07/01\ 1.9b: md-frame-0
 \c@mdf@zref@counter=\count277
 Package zref Info: New property: mdf@pagevalue on input line 895.
 )
-(./report.aux)
+No file report.aux.
 \openout1 = `report.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 81.
@@ -924,7 +924,7 @@ LaTeX Font Info:    ... okay on input line 81.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 81.
 LaTeX Font Info:    ... okay on input line 81.
 LaTeX Font Info:    Try loading font information for OT1+phv on input line 81.
- (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1phv.fd
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1phv.fd
 File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
 )
 Package caption Info: Begin \AtBeginDocument code.
@@ -1014,150 +1014,940 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 81.
 LaTeX Info: Redefining \pageref on input line 81.
 LaTeX Info: Redefining \nameref on input line 81.
-
-(./report.out) (./report.out)
 \@outlinefile=\write3
 \openout3 = `report.out'.
 
- (./frontcover.tex
+
+(./frontcover.tex
 Package pdftex.def Info: Option `bb' equivalent to `viewport' with pdftex drive
 r on input line 15.
-<../../figlib/IST_A_CMYK_POS.pdf, id=52, 845.0471pt x 597.51233pt>
+<../../figlib/IST_A_CMYK_POS.pdf, id=4, 845.0471pt x 597.51233pt>
 File: ../../figlib/IST_A_CMYK_POS.pdf Graphic file (type pdf)
 <use ../../figlib/IST_A_CMYK_POS.pdf>
 Package pdftex.def Info: ../../figlib/IST_A_CMYK_POS.pdf  used on input line 15
 .
 (pdftex.def)             Requested size: -78.38533pt x -90.76195pt.
 LaTeX Font Info:    Try loading font information for T1+phv on input line 26.
-
-(/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1phv.fd
+ (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1phv.fd
 File: t1phv.fd 2001/06/04 scalable font definitions for T1/phv.
 ))
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <14.4> not available
 (Font)              Font shape `OT1/phv/b/n' tried instead on input line 120.
- (./report.toc
-LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <10.95> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 2.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 7.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 7.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 7.
-)
 \tf@toc=\write4
 \openout4 = `report.toc'.
 
 
-(./intro.tex [1
+(./intro.tex
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <10.95> on input line 6.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 6.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 6.
+LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <10.95> not available
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 7.
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <../../figlib/IST_A_CMYK_PO
-S.pdf>]
-<rc.pdf, id=98, 312.95187pt x 256.04636pt>
+
+LaTeX Warning: Reference `fig:rc' on page 1 undefined on input line 7.
+
+
+LaTeX Warning: Reference `sec:analysis' on page 1 undefined on input line 11.
+
+
+LaTeX Warning: Reference `sec:simulation' on page 1 undefined on input line 12.
+
+
+
+LaTeX Warning: Reference `sec:analysis' on page 1 undefined on input line 14.
+
+
+LaTeX Warning: Reference `sec:conclusion' on page 1 undefined on input line 15.
+
+
+<rc.pdf, id=5, 312.95187pt x 256.04636pt>
 File: rc.pdf Graphic file (type pdf)
 <use rc.pdf>
 Package pdftex.def Info: rc.pdf  used on input line 18.
 (pdftex.def)             Requested size: 182.09486pt x 148.98753pt.
-) (./analysis.tex [2 <./rc.pdf>]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+) (./analysis.tex
+
+LaTeX Warning: Reference `fig:rc' on page 1 undefined on input line 4.
+
+[1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <../../figlib/IST_A_CMYK_PO
+S.pdf>]
+
+LaTeX Warning: Reference `eq:kvl' on page 2 undefined on input line 25.
+
+
+LaTeX Warning: Reference `eq:kvl2' on page 2 undefined on input line 31.
+
+
+LaTeX Warning: Reference `eq:vo_for' on page 2 undefined on input line 46.
+
+
+LaTeX Warning: Reference `fig:forced' on page 2 undefined on input line 47.
+
 Package epstopdf Info: Source file: <forced.eps>
-(epstopdf)                    date: 2021-03-19 12:36:25
+(epstopdf)                    date: 2021-03-21 20:59:14
 (epstopdf)                    size: 361823 bytes
 (epstopdf)             Output file: <forced-eps-converted-to.pdf>
-(epstopdf)                    date: 2021-03-19 12:36:26
-(epstopdf)                    size: 108279 bytes
 (epstopdf)             Command: <repstopdf --outfile=forced-eps-converted-to.pd
 f forced.eps>
 (epstopdf)             \includegraphics on input line 58.
-Package epstopdf Info: Output file is already uptodate.
+runsystem(repstopdf --outfile=forced-eps-converted-to.pdf forced.eps)...execute
+d safely (allowed).
+
+Package epstopdf Info: Result file: <forced-eps-converted-to.pdf>
+(epstopdf)                    date: 2021-03-21 20:59:15
+(epstopdf)                    size: 108279 bytes.
 
 
 pdfTeX warning: pdflatex (file ./forced-eps-converted-to.pdf): PDF inclusion: f
 ound PDF version <1.7>, but at most version <1.5> allowed
-<forced-eps-converted-to.pdf, id=123, 578.16pt x 433.62pt>
+<forced-eps-converted-to.pdf, id=37, 578.16pt x 433.62pt>
 File: forced-eps-converted-to.pdf Graphic file (type pdf)
 <use forced-eps-converted-to.pdf>
 Package pdftex.def Info: forced-eps-converted-to.pdf  used on input line 58.
 (pdftex.def)             Requested size: 364.19667pt x 273.14235pt.
-) (./simulation.tex
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[2 <./rc.pdf>]) (./simulation.tex
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <12> not available
 (Font)              Font shape `OT1/phv/b/n' tried instead on input line 4.
- (../sim/op_tab.tex)
-LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <10.95> not available
-(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 19.
- [3 <./forced-eps-converted-to.pdf>]
-<../sim/trans.pdf, id=138, 597.23125pt x 845.1575pt>
-File: ../sim/trans.pdf Graphic file (type pdf)
-<use ../sim/trans.pdf>
-Package pdftex.def Info: ../sim/trans.pdf  used on input line 33.
-(pdftex.def)             Requested size: 273.14923pt x 386.54616pt.
 
 
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[4]
-<../sim/acm.pdf, id=147, 597.23125pt x 845.1575pt>
-File: ../sim/acm.pdf Graphic file (type pdf)
-<use ../sim/acm.pdf>
-Package pdftex.def Info: ../sim/acm.pdf  used on input line 51.
-(pdftex.def)             Requested size: 273.14923pt x 386.54616pt.
+LaTeX Warning: Reference `tab:op' on page 3 undefined on input line 6.
 
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+! LaTeX Error: File `../sim/op_tab.tex' not found.
 
-[5 <../sim/trans.pdf>]
-<../sim/acp.pdf, id=158, 597.23125pt x 845.1575pt>
-File: ../sim/acp.pdf Graphic file (type pdf)
-<use ../sim/acp.pdf>
-Package pdftex.def Info: ../sim/acp.pdf  used on input line 65.
-(pdftex.def)             Requested size: 273.14923pt x 386.54616pt.
+Type X to quit or <RETURN> to proceed,
+or enter new name. (Default extension: tex)
 
+Enter file name: x
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+! Missing } inserted.
+<inserted text> 
+                }
+l.15     \input{../sim/op_tab}
+                              
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
 
-<../sim/zim.pdf, id=160, 597.23125pt x 845.1575pt>
-File: ../sim/zim.pdf Graphic file (type pdf)
-<use ../sim/zim.pdf>
-Package pdftex.def Info: ../sim/zim.pdf  used on input line 79.
-(pdftex.def)             Requested size: 273.14923pt x 386.54616pt.
+! Missing } inserted.
+<inserted text> 
+                }
+l.15     \input{../sim/op_tab}
+                              
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
 
-Underfull \vbox (badness 2269) has occurred while \output is active []
+! Missing \cr inserted.
+<inserted text> 
+                \cr 
+l.15     \input{../sim/op_tab}
+                              
+I'm guessing that you meant to end an alignment here.
 
- [6 <../sim/acm.pdf>]
+! Missing { inserted.
+<inserted text> 
+                {
+l.15     \input{../sim/op_tab}
+                              
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+! You can't use `\end' in internal vertical mode.
+<recently read> \@@end 
+                       
+l.15     \input{../sim/op_tab}
+                              
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
 
-) (./conclusion.tex [7 <../sim/acp.pdf>])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 158.
- [8 <../sim/zim.pdf>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 158.
- (./report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 158.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 158.
-Package rerunfilecheck Info: File `report.out' has not changed.
-(rerunfilecheck)             Checksum: 7342BE30AC7108BF88681F5F914161ED;778.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 158.
- ) 
+(/usr/share/texlive/texmf-dist/tex/latex/tools/x.tex
+! .
+l.38   \batchmode \errmessage{}
+                               \csname @@end\endcsname \end
+This error message was generated by an \errmessage
+command, so I can't give any explicit help.
+Pretend that you're Hercule Poirot: Examine all clues,
+and deduce the truth by order and method.
+
+! You can't use `\end' in internal vertical mode.
+<recently read> \@@end 
+                       
+l.38 ...hmode \errmessage{}\csname @@end\endcsname
+                                                   \end
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+The control sequence marked <to be read again> should
+not appear between \csname and \endcsname.
+
+! Missing \endcsname inserted.
+<to be read again> 
+                   \def 
+l.39 \endinput
+              
+(That makes 100 errors; please try again.) 
 Here is how much of TeX's memory you used:
- 18786 strings out of 492982
- 331160 string characters out of 6134896
- 515882 words of memory out of 5000000
- 22124 multiletter control sequences out of 15000+600000
- 551757 words of font info for 49 fonts, out of 8000000 for 9000
+ 18706 strings out of 492982
+ 330102 string characters out of 6134896
+ 513852 words of memory out of 5000000
+ 22084 multiletter control sequences out of 15000+600000
+ 548774 words of font info for 46 fonts, out of 8000000 for 9000
  1142 hyphenation exceptions out of 8191
- 39i,8n,39p,10395b,361s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uh
-vb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on report.pdf (8 pages, 392596 bytes).
-PDF statistics:
- 225 PDF objects out of 1000 (max. 8388607)
- 181 compressed objects within 2 object streams
- 35 named destinations out of 1000 (max. 500000)
- 132 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 57i,8n,52p,10395b,342s stack positions out of 5000i,500n,10000p,200000b,80000s
 
+!  ==> Fatal error occurred, no output PDF file produced!

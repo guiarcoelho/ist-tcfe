@@ -1,6 +1,6 @@
 OctSymPy v2.6.0: this is free software without warranty, see source.
 Initializing communication with SymPy using a popen2() pipe.
-Some output from the Python subprocess (pid 3558) might appear next.
+Some output from the Python subprocess (pid 5381) might appear next.
 
 OctSymPy: Communication established.  SymPy v1.1.1.
 i(t) = (symfun)

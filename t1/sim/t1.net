@@ -1,0 +1,63 @@
+T1
+
+.options savecurrents
+
+Va 1 0 5.2111
+
+R1 1 2 1.0063k
+
+R2 2 3 2.0445k
+
+Gb 5 3 (2,4) 7.13035
+
+R5 5 4 3.049k
+
+R3 2 4 3.0633k
+
+R4 4 0 4.147k
+
+R6 6 8 2.0030k
+
+R7 8 7 1.0243k
+
+Hc 4 7 V0 8.3609
+
+Id 7 5 1.0106m
+
+V0 0 6 0
+
+.control
+
+*makes plots in color
+set hcopypscolor=0
+set color0=white
+set color1=black
+set color2=red
+set color3=blue
+set color4=violet
+set color5=rgb:3/8/0
+set color6=rgb:4/0/0
+
+op
+
+echo "********************"
+echo "Operating point"
+echo "********************"
+*print v-sweep
+*print @R6[i]
+
+echo "op_tab"
+print all
+echo "op_end"
+
+quit
+.endc
+
+.end
+
+
+
+
+
+
+
