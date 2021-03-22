@@ -3,6 +3,7 @@ clear all
 
 %%EXAMPLE SYMBOLIC COMPUTATIONS
 
+format long;
 pkg load symbolic
 
 syms R1
@@ -23,28 +24,28 @@ syms Ib
 syms Ic
 syms Id
 
-%%  Método das Malhas
+%%  Mesh Method
 
-syms Ialfa
-syms Ibeta
-syms Igama
-syms Idelta
+syms Itl 
+syms Itr
+syms Ibl
+syms Ibr
 
-printf("\n\nKVL equation:\n");
+printf("\n\nKVL Elementary Meshes Equations:\n");
 
--Va+Ialfa*R1+Vb+R4*(Ialfa-Idelta) == 0
-Ibeta = -Ib
-Igama = -Id
-R6*Idelta+R4*(Idelta-Ialfa)+Vc+R7*Idelta == 0
+Itl*R1+Vb+R4*(Itl-Ibl) == Va
+Itr = -Ib
+Ibr = -Id
+R6*Ibl+R4*(Ibl-Itl)+Vc+R7*Ibl == 0
 
-printf("\n\Por observação do circuito\n");
+printf("\n\Circuit Given Data and Direct Analysis:\n");
 
 Vc = Kc*Ic
 Ib = Kb*Vb
-Ic = -Idelta
-Vb = R3*(Ialfa-Ibeta)
+Ibl = -Ic
+Vb = R3*(Itl-Itr)
 
-printf("\nAtribuição dos valores para o laboratório:\n\n");
+printf("\nLab Data for our Group:\n\n");
 
 %%EXAMPLE NUMERIC COMPUTATIONS
 
@@ -73,25 +74,25 @@ A = [ R1+R4 , 0 , 0, -R4      , 1   , 0, 0, 0   ;...
 
 B = [ Va; 0; -Id; 0; 0; 0; 0; 0]
 
-x = A\B;
+R = inv(A)*B;
 
-Ialfa = x(1)
-Ibeta = x(2)
-Igama = x(3)
-Idelta= x(4)
-Vb    = x(5)
-Vc    = x(6)
-Ib    = x(7)
-Ic    = x(8)
+Itl = R(1)
+Itr = R(2)
+Ibl = R(3)
+Ibr = R(4)
+Vb  = R(5)
+Vc  = R(6)
+Ib  = R(7)
+Ic  = R(8)
 
-printf("Mesh_TAB \n")
-printf("@$I_{\\alpha}$ = %e \n", Ialfa);
-printf("@$I_{\\beta}$ = %e \n",  Ibeta);
-printf("@$I_{\\gamma}$ = %e \n", Igama);
-printf("@$I_{\\delta}$ = %e \n", Idelta);
+printf("Malhas_TAB \n")
+printf("@$I_{tl}$ = %e \n", Itl);
+printf("@$I_{tr}$ = %e \n",  Itr);
+printf("@$I_{bl}$ = %e \n", Ibl);
+printf("@$I_{br}$ = %e \n", Ibr);
 
 printf("$V_{b}$ = %e \n", Vb);
 printf("$V_{c}$ = %e \n", Vc);
 printf("@$I_{b}$ = %e \n", Ib);
 printf("@$I_{c}$ = %e \n", Ic);
-printf("Mesh_END \n")
+printf("Malhas_END \n")
