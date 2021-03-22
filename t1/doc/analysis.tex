@@ -1,11 +1,11 @@
 \section{Theoretical Analysis}
 \label{sec:analysis}
 
-In this section, the circuit shown in Figure~\ref{fig:Circuit_Base} is analyzed theoretically with the Mesh Method and with the Nodal Method, in order to complement each other results.
+In this section, the circuit shown in Figure~\ref{fig:rc} is analyzed theoretically with the Mesh Method and with the Nodal Method, in order to complement each other results.
 
 \subsection{Mesh Method}
 
-The Mesh Method consists in introducing currents that circulate in the meshes of the circuit, that is, in the loops that do not contain other loops, as shown in Figure~\ref{fig:Circuit_Mesh}, and then evaluate the circuit based on the new currents.
+The Mesh Method consists in introducing currents that circulate in the meshes of the circuit, that is, in the loops that do not contain other loops, as shown in Figure~\ref{fig:rc}, and then evaluate the circuit based on the new currents.
 
 
 After identifying the mesh currents, the next step in this method is to use the Kirchhoff Voltage Law~(KVL) in the meshes that do not contain current sources (mesh~$\alpha$~(\ref{eq:MM_Alpha}) and $\delta$~(\ref{eq:MM_Delta})) and to relate the mesh currents to the currents imposed by the sources (mesh~$\beta$~(\ref{eq:MM_Beta}) and $\gamma$~(\ref{eq:MM_Gamma})):
@@ -57,15 +57,15 @@ The solution to this linear system of equations is determined by Octave:
   \begin{tabular}{|l|r|}
     \hline    
     {\bf Name} & {\bf Value [A or V]} \\ \hline
-    \input{../mat/Malhas_tab}
+    \input{../mat/Mesh_tab}
   \end{tabular}
   \caption{Variables in the Mesh Method. A variable preceded by @ is of type {\em current} and expressed in Ampere; other variables are of type {\em voltage} and expressed in Volt.}
-  \label{tab:malhas}
+  \label{tab:Mesh}
 \end{table}
 
 \subsection{Nodal Method}
 
-In the Nodal Method, the determination of the values of current and voltage is made by, firstly, finding all the knots in the circuit, as made in Figure~\ref{fig:Circuit_Nodal}.
+In the Nodal Method, the determination of the values of current and voltage is made by, firstly, finding all the knots in the circuit, as made in Figure~\ref{fig:rc}.
 
 
 Then, it is used the Kirchhoff Current Law~(KCL) in the nodes that are not connected to voltage sources (Equations~\ref{eq:NM_Point2}~to~\ref{eq:NM_Point7}) an relate the knots voltages with the voltage sources that are connected to them (Equations~\ref{eq:NM_Va}~and~\ref{eq:NM_Vc}):
@@ -134,8 +134,8 @@ The solution to this linear system of equations is determined by Octave:
   \begin{tabular}{|l|r|}
     \hline    
     {\bf Name} & {\bf Value [A or V]} \\ \hline
-    \input{../mat/Nos_tab}
+    \input{../mat/Knots_tab}
   \end{tabular}
   \caption{Variables in the Nodal Method. A variable preceded by @ is of type {\em current} and expressed in Ampere; other variables are of type {\em voltage} and expressed in Volt.}
-  \label{tab:nos}
+  \label{tab:Knots}
 \end{table}

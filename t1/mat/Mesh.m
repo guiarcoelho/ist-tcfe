@@ -84,7 +84,7 @@ Vc    = x(6)
 Ib    = x(7)
 Ic    = x(8)
 
-printf("Malhas_TAB \n")
+printf("Mesh_TAB \n")
 printf("@$I_{\\alpha}$ = %e \n", Ialfa);
 printf("@$I_{\\beta}$ = %e \n",  Ibeta);
 printf("@$I_{\\gamma}$ = %e \n", Igama);
@@ -94,4 +94,4 @@ printf("$V_{b}$ = %e \n", Vb);
 printf("$V_{c}$ = %e \n", Vc);
 printf("@$I_{b}$ = %e \n", Ib);
 printf("@$I_{c}$ = %e \n", Ic);
-printf("Malhas_END \n")
+printf("Mesh_END \n")

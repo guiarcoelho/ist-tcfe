@@ -1,22 +1,22 @@
-all:  octaveNos.log octaveMalhas.log
+all:  octaveKnots.log octaveMesh.log
 
 
-PreOctaveMalhas.log: Malhas.m
+PreOctaveMesh.log: Mesh.m
 	octave $< > $@
 
-octaveMalhas.log: PreOctaveMalhas.log
+octaveMesh.log: PreOctaveMesh.log
 	$(eval OCTTABS=$(shell grep -R _TAB $< | sed 's/_TAB//g' | sed ':a;N;$!ba;s/\n/ /g'))
 	$(foreach i, $(OCTTABS), sed -n '/^$i_TAB/,/^$i_END/{p;/^$i_END/q}' $< | grep -v $i_TAB | grep -v $i_END | grep -v '#' | sed 's/\=/\&/g' | sed 's/$$/\\\\ \\hline/g' > $i_tab.tex;)
-	 mv PreOctaveMalhas.log octaveMalhas.log
+	 mv PreOctaveMesh.log octaveMesh.log
 
 
-PreOctaveNos.log: Nos.m
+PreOctaveKnots.log: Knots.m
 	octave $< > $@
 
-octaveNos.log: PreOctaveNos.log
+octaveKnots.log: PreOctaveKnots.log
 	$(eval OCTTABS=$(shell grep -R _TAB $< | sed 's/_TAB//g' | sed ':a;N;$!ba;s/\n/ /g'))
 	$(foreach i, $(OCTTABS), sed -n '/^$i_TAB/,/^$i_END/{p;/^$i_END/q}' $< | grep -v $i_TAB | grep -v $i_END | grep -v '#' | sed 's/\=/\&/g' | sed 's/$$/\\\\ \\hline/g' > $i_tab.tex;)	
-	mv PreOctaveNos.log octaveNos.log
+	mv PreOctaveKnots.log octaveKnots.log
 	
 
 clean:
