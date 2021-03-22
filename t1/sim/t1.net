@@ -2,29 +2,32 @@ T1
 
 .options savecurrents
 
-Va 1 0 5.2111
+Va 1 0 5.21115954318
 
-R1 1 2 1.0063k
+Id 7 5 1.01060327002m
 
-R2 2 3 2.0445k
 
-Gb 5 3 (2,4) 7.13035
+R1 1 2 1.00630884619k
 
-R5 5 4 3.049k
+R2 2 3 2.04459046985k
 
-R3 2 4 3.0633k
+R3 2 5 3.06334496076k
 
-R4 4 0 4.147k
+R4 4 5 4.14716400981k
 
-R6 6 8 2.0030k
+R5 5 6 3.04909455334k
 
-R7 8 7 1.0243k
+R6 0 7 2.00303133774k
 
-Hc 4 7 V0 8.3609
+R7 7 8 1.02434741967k
 
-Id 7 5 1.0106m
 
-V0 0 6 0
+Hc 5 8 V0 8.36091910927k
+
+Gb 6 3 (2,5) 7.13035015936m
+
+
+V0 4 0 0
 
 .control
 
@@ -45,10 +48,9 @@ echo "Operating point"
 echo "********************"
 *print v-sweep
 *print @R6[i]
-
-echo "op_tab"
+echo "op_TAB"
 print all
-echo "op_end"
+echo "op_END"
 
 quit
 .endc
