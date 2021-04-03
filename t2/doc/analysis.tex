@@ -1,0 +1,161 @@
+\section{Theoretical Analysis}
+\label{sec:analysis}
+
+We are now going to make a theoretical analysis of the given circuit shown in Figure~\ref{fig:Circuit} based on the Mesh Method (KVL) and the Nodes MEthod (KCL), to then take some conclusions.
+
+\subsection{Mesh Method}
+
+To use the mesh method we start from the principle that the total voltage in a closed loop equals to zero. That means that any closed part of the circuit should have equal voltage providence in the sources of tension to the voltage drop in other components. In a circuit only with tension and current sources as well as resistors, every Mesh will provide us with a linear equation. The number of independ linear equations will equal the number of elementary, as shown in Figure~\ref{fig:Circuit_Mesh_Method}, meshes in the circuit so this are the ones we are going to analyse. For facilitation purposes we assigned a current direction (clockwise) to every elementary Mesh.
+
+
+\begin{figure}[h] \centering
+\includegraphics[width=0.5\linewidth]{Circuit_Mesh_61.pdf}
+\caption{Circuit with clockwise assigned current directions}
+\label{fig:Circuit_Mesh_Method}
+\end{figure}
+
+
+After identifying the mesh currents, we will use the Kirchhoff Voltage Law (KVL) in the meshes that do not contain current sources, (1) and (2), and to equal the mesh currents to the currents imposed by the sources in the other two, (3) and (4):
+
+\begin{equation}
+  R_1I_tl + V_b + R_4(I_tl-I_bl) - V_a = 0
+  \label{eq:TL}
+\end{equation}
+\begin{equation}
+  V_c + I_bl(R_4+R_6+R_7) - R_4I_tl = 0
+  \label{eq:BL}
+\end{equation}
+
+\begin{equation}
+  I_tr = - I_b
+  \label{eq:TR}
+\end{equation}
+\begin{equation}
+  I_br = - I_d
+  \label{eq: BR}
+\end{equation}
+
+We can find another 4 independent equations to solve the circuit. These are either given to us, (5) and (6), or can be extracted by direct analyses of the circuit with Ohm's Law, (7) and (8):
+
+\begin{equation}
+  I_b = K_bV_b
+  \label{eq:Vb_Ib}
+\end{equation}
+\begin{equation}
+  V_c = K_cI_c
+  \label{eq:Vc_Ic}
+\end{equation}
+
+\begin{equation}
+  I_c = - I_bl
+  \label{eq:Ic}
+\end{equation}
+\begin{equation}
+  V_b = R_3(I_{\alpha}-I_{\beta})
+  \label{eq:Vb}
+\end{equation}
+
+Using Octave we can arrange a matrix to find the solution to the linear system:
+
+\begin{table}[h]
+  \centering
+  \begin{tabular}{|l|r|}
+    \hline    
+    {\bf Name} & {\bf Value [A or V]} \\ \hline
+    \input{../mat/Malhas_tab}
+  \end{tabular}
+  \caption{Variables in the Mesh Method. A variable preceded by @ is of type {\em current} and expressed in Ampere; other variables are of type {\em voltage} and expressed in Volt.}
+  \label{tab:malhas}
+\end{table}
+
+\subsection{Nodal Method}
+
+To apply the Nodal Method (KCL) we need to first identify all the nodes, Figure~\ref{fig:Circuit_Nodal_Method}. The Nodal Method depends on the principle that all the sum of the converging and diverging currents in a certain node must be zero. This means that the sum of the current that flows into a specific node minus the current that flows out of this node should be zero for any node in the circuit.
+
+
+\begin{figure}[h] \centering
+\includegraphics[width=0.5\linewidth]{Circuit_Nodal_61.pdf}
+\caption{Circuit with numbered nodes, voltages relative to v0}
+\label{fig:Circuit_Nodal_Method}
+\end{figure}
+
+After finding all the nodes we now assigne a number, and an unknown voltage based on the comparision with the voltage of node 0 (v0=0V). To start solving the circuit we have to use the Kirchoff Current Law (KCL) to all the nodes that do not have a voltage source connected to them, in node 2 (9), 3 (10), 5 (11) and 6 (12):
+\begin{equation}
+  \frac{v_2-v_1}{R_1} + \frac{v_2-v_3}{R_3} + \frac{V_b}{R_3} = 0;
+  \label{eq:Node2}
+\end{equation}
+\begin{equation}
+  I_b + \frac{v_2-v_3}{R_2} = 0	
+  \label{eq:Node3}
+\end{equation}
+\begin{equation}
+  \frac{v_4-v_5}{R_5} - I_b + I_d = 0
+  \label{eq:Node5}
+\end{equation}
+\begin{equation}
+  I_c + \frac{v_7-v_6}{R_7} = 0
+  \label{eq:Node6}
+\end{equation}
+
+For the voltage sorces we can write equations that relate them with the voltage assigned to the nodes, (13) and (14):
+
+\begin{equation}
+  v_1 - v_0 = V_a
+  \label{eq:N_Va}
+\end{equation}
+\begin{equation}
+  v_4 - v_7 = V_c
+  \label{eq:N_Vc}
+\end{equation}
+
+The dependent current source and voltage source equations can also be used to solve the system, (15) and (16):
+
+\begin{equation}
+  V_c = K_cI_c
+  \label{eq:VcIc}
+\end{equation}
+\begin{equation}
+  I_b = K_bV_b
+  \label{eq:IbVb}
+\end{equation}
+
+
+Using Ohm’s Law, we find the relation (17), and by direct analysis we can also write (18):
+\begin{equation}
+  I_c = \frac{v_0-v_6}{R_6}
+  \label{eq:Ic}
+\end{equation}
+\begin{equation}
+  v_b = v_2 - v_4
+  \label{eq:Vb}
+\end{equation}
+
+We also define v0 as tne node connected to ground, as previously mentioned, (19):
+\begin{equation}
+  v_0 = 0.
+  \label{eq:v0}
+\end{equation}
+
+Because we need one more equation to solve the linear system we take advantage of the fact that the voltage sources don't alter the current, and so we can treat nodes 0 and 1 as one big node to write the equation, (20):
+
+\begin{equation}
+  \frac{v_4-v_0}{R_4} + \frac{v_2-v_1}{R_1} - I_c = 0;
+  \label{eq:BNode}
+\end{equation}
+
+
+Now we use octave to determine the final solution of the system:
+
+\begin{table}[h]
+  \centering
+  \begin{tabular}{|l|r|}
+    \hline    
+    {\bf Name} & {\bf Value [A or V]} \\ \hline
+    \input{../mat/Nos_tab}
+  \end{tabular}
+  \caption{Variables in the Nodal Method. A variable preceded by @ is of type {\em current} and expressed in Ampere; other variables are of type {\em voltage} and expressed in Volt.}
+  \label{tab:nos}
+\end{table}
+
+\clearpage
+
