@@ -1,20 +1,36 @@
-\clearpage
 \section{Introduction}
 \label{sec:introduction}
+% state the learning objective
 
-% state the learning objective 
-The objective of this laboratory assignment is to study a circuit containing several resistors $R_n$, two current sources, $I_d$ and $I_b$, with one of them beeing dependant, and two tension sources, $V_a$ and $V_c$, with the latter beeing dependant. The circuit can be seen if Figure~\ref{fig:Circuit}.
+\par The goal of this laboratory assignment is to study a circuit with a sinusoidal voltage source and a capacitor. The equations below show how the value of the voltage source varies with time: 
+\begin {equation}
+	v_s( t)  = V_s u(-t) + sin( 2 \pi f t ) u( t)
+	\label{eq:i1}
+\end{equation}
+ with 
+\begin {equation}
+	u( t ) =  
+	\begin{cases*} 
+	  0 & if $t < 0$ \\
+	1, & if $t \geq 0$
+	\end{cases*}
+	\label{eq:i2}
+\end{equation}
 
+In this circuit there are both a linearly dependent voltage and current source. The circuit also contains 7 resistors.\par
+The nodes of the circuit were numbered arbitrarily (from {\it$V_{0}$}  to {\it$V_{7}$} ), and it was considered that {\it node 0} was the ground node. The voltage-controlled current source {\it $I_b$} has a linear dependence on Voltage {\it $V_b$}, of constant {\it $K_b$}. The voltage {\it $V_b$} is the voltage drop at the ends of resistor {\it $R_3$}. The current-controlled voltage source {\it $V_d$} has a linear dependence on current {\it $I_d$}, of constant {\it $K_d$}. The control current {\it $I_d$} is the current that passes through the resistor {\it $R_6$}.
+The circuit can be seen in {Figure~\ref{fig:circuit_t2}}.\par
+%The values for the resistors and the  constants for the dependent 
+%sources are presented in \textbf{Table~\ref{tab:python_values}}. 
+These values for the capacitance, resistors and the constants for the dependent sources were obtained using the Python script provided by the Professor and using the number 95802 as the seed.The seed number can be altered in the top Makefile. By doing so, all figures and tables will be updated acording to the new values. \par
 
-In Section~\ref{sec:analysis}, a theoretical analysis of the circuit is
-presented. In Section~\ref{sec:simulation}, the circuit is analysed by
-simulation, and the results are compared to the theoretical results obtained in
-Section~\ref{sec:analysis}. The conclusions of this study are outlined in
-Section~\ref{sec:conclusion}.
+The goal of this laboratory assignment is to study a circuit with a sinusoidal voltage source and a capacitor. The equations below show how the value of the voltage source varies with time:
 
 \begin{figure}[h] \centering
-\includegraphics[width=0.5\linewidth]{Circuit.pdf}
-\caption{t1 circuit.}
-\label{fig:Circuit}
+\includegraphics[width=0.6\linewidth]{circuito.pdf}
+\caption{Circuit in study}
+\label{fig:circuit_t2}
 \end{figure}
-\clearpage
+
+
+\pagebreak

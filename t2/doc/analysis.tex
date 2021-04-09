@@ -1,161 +1,242 @@
 \section{Theoretical Analysis}
 \label{sec:analysis}
 
-We are now going to make a theoretical analysis of the given circuit shown in Figure~\ref{fig:Circuit} based on the Mesh Method (KVL) and the Nodes MEthod (KCL), to then take some conclusions.
-
-\subsection{Mesh Method}
-
-To use the mesh method we start from the principle that the total voltage in a closed loop equals to zero. That means that any closed part of the circuit should have equal voltage providence in the sources of tension to the voltage drop in other components. In a circuit only with tension and current sources as well as resistors, every Mesh will provide us with a linear equation. The number of independ linear equations will equal the number of elementary, as shown in Figure~\ref{fig:Circuit_Mesh_Method}, meshes in the circuit so this are the ones we are going to analyse. For facilitation purposes we assigned a current direction (clockwise) to every elementary Mesh.
-
+In this section we are going to apply the methods as told in the exercise of the laboratory to be able to compare the results with the simulation results. As it is required in the ngspice we will add a voltage 0 source to the circuit, placing it betwin resistor 6 and node 7, creating a node 4 in betwin the sorce and the resistor.
 
 \begin{figure}[h] \centering
-\includegraphics[width=0.5\linewidth]{Circuit_Mesh_61.pdf}
-\caption{Circuit with clockwise assigned current directions}
-\label{fig:Circuit_Mesh_Method}
+\includegraphics[width=0.6\linewidth]{circuitong.pdf}
+\caption{Circuit in study}
+\label{fig:circuit_t2}
 \end{figure}
 
 
-After identifying the mesh currents, we will use the Kirchhoff Voltage Law (KVL) in the meshes that do not contain current sources, (1) and (2), and to equal the mesh currents to the currents imposed by the sources in the other two, (3) and (4):
 
-\begin{equation}
-  R_1I_tl + V_b + R_4(I_tl-I_bl) - V_a = 0
-  \label{eq:TL}
+\subsection{Analysis for $t<0$ - Nodal Method} 
+For $t<0$ the capacitor has no current thrue it, so it works as an open circuit. Aplying the Nodes Method we can find the following equations. From the ground placement on the circuit we get equation (\ref{eq:n1}), from the 0 voltage source we get equation (\ref{eq:n2}), from the information given about the dependent voltage source we get equation (\ref{eq:n3}) and from the independent voltage source we get equation (\ref{eq:n4}). Then, by aplying KCL to the nodes 2 (\ref{eq:n5}), 3 (\ref{eq:n6}), 6 (\ref{eq:n8}), 7 (\ref{eq:n9}) and 5, considering that the dependent voltage source doesn't change the current, (\ref{eq:n7}).\par
+\begin {equation}
+V_0 = 0
+\label{eq:n1}
 \end{equation}
-\begin{equation}
-  V_c + I_bl(R_4+R_6+R_7) - R_4I_tl = 0
-  \label{eq:BL}
+\begin {equation}
+V_4 = V_7
+\label{eq:n2}
+\end{equation}
+\begin {equation}
+	V_5 - V_8 = K_d \frac{V_0 - V_4}{R_6}
+	\label{eq:n3}
+\end{equation}
+\begin {equation}
+	V_1 - V_0 = V_s
+	\label{eq:n4}
+\end{equation}
+\begin {equation}
+	\frac{V_2-V_1}{R_1} + \frac{V_2 - V_5}{R_3} + \frac{V_2 - V_3}{R_2} = 0
+	\label{eq:n5}
+\end{equation}
+\begin {equation}
+	\frac{V_3-V_2}{R_2} - K_b(V_2-V_5)  = 0
+	\label{eq:n6}
+\end{equation}
+\begin {equation}
+	\frac{V_5-V_2}{R_3} + \frac{V_5-V_0}{R_4} + \frac{V_5-V_6}{R_5} + \frac{V_8-V_7}{R_7}= 0
+	\label{eq:n7}
+\end{equation}
+\begin {equation}
+	\frac{V_6-V_5}{R_5} + K_b(V_2-V_5)  = 0
+	\label{eq:n8}
+\end{equation}
+\begin {equation}
+	\frac{V_4-V_0}{R_6} + \frac{V_7 - V_8}{R_7} = 0
+	\label{eq:n9}
 \end{equation}
 
-\begin{equation}
-  I_tr = - I_b
-  \label{eq:TR}
-\end{equation}
-\begin{equation}
-  I_br = - I_d
-  \label{eq: BR}
-\end{equation}
 
-We can find another 4 independent equations to solve the circuit. These are either given to us, (5) and (6), or can be extracted by direct analyses of the circuit with Ohm's Law, (7) and (8):
 
-\begin{equation}
-  I_b = K_bV_b
-  \label{eq:Vb_Ib}
-\end{equation}
-\begin{equation}
-  V_c = K_cI_c
-  \label{eq:Vc_Ic}
-\end{equation}
+\begin{table}[H]
 
-\begin{equation}
-  I_c = - I_bl
-  \label{eq:Ic}
-\end{equation}
-\begin{equation}
-  V_b = R_3(I_{\alpha}-I_{\beta})
-  \label{eq:Vb}
-\end{equation}
+  \centering 
+  \begin{tabular}{|l|r|}
+    \hline    
+    {\bf Name} & {\bf Nodal method}\\ \hline
+    \input{nodal_tab}
+  \end{tabular}
+  \vspace{10px}
+  \caption{A variable that starts with "@" is of type {\em current}
+    and expressed in Ampere (A); all the other variables that start with a "V" are of the type {\it voltage} and expressed in
+    Volt (V).}
+  \label{tab:theoretical}
+  
+\end{table}
 
-Using Octave we can arrange a matrix to find the solution to the linear system:
 
-\begin{table}[h]
+
+\subsection{Equivalent resistor as seen from the capacitor terminals}
+To obtain the equivalent resistence as viewd by C we need to remove the independt voltage source, by replacing it with a short circuit ($V_s=0$). Because of the dependent source we also need to  replace the capacitor with a voltage source $V_x = V_6-V_8$. We use the $V_6$ and $V_8$ from the previous section beacause the voltage drop at the terminals of the capacitor needs to be a continuous function (there can not be an energy
+discontinuity in the capacitor).\par
+Now we perform an other nodal analysis to figure out the current $I_x$ supplied by the immaginary voltage source $V_x$, to then be able to find the equivalent resistance ($R_eq = V_x/I_x$).The equations considered for these calculations were \ref{eq:n1}, \ref{eq:n2}, \ref{eq:n3}, \ref{eq:n4}, \ref{eq:n5}, \ref{eq:n6} and the following:
+
+
+\begin {equation}
+	\frac{V_1-V_2}{R_1} + \frac{V_0-V_4}{R_6} + \frac{V_0-V_5}{R_4} = 0
+	\label{eq:eq7}
+\end{equation}
+\begin {equation}
+	K_b(V_2-V_5) + \frac{V_6-V_5}{R_5} + I_x  = 0
+	\label{eq:eq8}
+\end{equation}
+\begin {equation}
+	\frac{V_4-V_0}{R_6} + \frac{V_7 - V_8}{R_7} = 0
+	\label{eq:eq9}
+\end{equation}
+\begin {equation}
+	V_x = V_6 - V_8
+	\label{eq:eq10}
+\end{equation}
+\newpage
+
+\begin{table}[H]
+
   \centering
   \begin{tabular}{|l|r|}
     \hline    
-    {\bf Name} & {\bf Value [A or V]} \\ \hline
-    \input{../mat/Malhas_tab}
+    {\bf Name} & {\bf Theoretical values }\\ \hline
+    \input{req_tab}
   \end{tabular}
-  \caption{Variables in the Mesh Method. A variable preceded by @ is of type {\em current} and expressed in Ampere; other variables are of type {\em voltage} and expressed in Volt.}
-  \label{tab:malhas}
+  \vspace{10px}
+  \caption{A variable that starts with a "V" is of type {\it voltage} and expressed in
+    Volt (V). The variable $R_{eq}$ is expressed in Ohm and the variable $\tau$ is expressed in seconds }
+  \label{tab:equivalent resistor}
 \end{table}
 
-\subsection{Nodal Method}
+%point 3
+\subsection{Natural solution for V6}
 
-To apply the Nodal Method (KCL) we need to first identify all the nodes, Figure~\ref{fig:Circuit_Nodal_Method}. The Nodal Method depends on the principle that all the sum of the converging and diverging currents in a certain node must be zero. This means that the sum of the current that flows into a specific node minus the current that flows out of this node should be zero for any node in the circuit.
+To calculate the natural solution for V6 we first need to simplify the circuit by removing all independent sources and aplying KVL. We then get the natural solution by the equation $V_{6n}(t)=Ae^{\frac{-t}{\tau}}$.
+
+The process to get to this point is explained in the theoretical class nº3. $\tau$ is the time constant, calculated with the equivalent resistance from the previous section ($\tau=R_{eq}*C$) and A is taken from the boundry conditions also calculated in the last section ($t=0, A=V_x$).
 
 
-\begin{figure}[h] \centering
-\includegraphics[width=0.5\linewidth]{Circuit_Nodal_61.pdf}
-\caption{Circuit with numbered nodes, voltages relative to v0}
-\label{fig:Circuit_Nodal_Method}
+
+
+
+\begin{figure}[H] \centering
+\includegraphics[width=0.5\linewidth]{natural_tab.pdf} 
+\vspace{10px}
+\caption{Natural response of $V_6$ as a function of time in the interval from [0,20] ms}
+\label{fig:natural}
+\end{figure} 
+
+%point 4
+\subsection{Forced solution for V6 with f=1000Hz}
+Now we determine the forced solution for $V_6$, in the same time interval and with a frequency of 1kHz. For this, we will redo the nodal method but using impedances now, and considering that $V_s=1$, taken from the initial condition of the source. We can determine the complex amplitudes in all nodes with the following equations:
+
+\begin {equation}
+	Z = \frac{1}{j w C}
+	\label{eq:Z}
+\end{equation}
+
+\begin {equation}
+	\tilde{V}_s = 1
+	\label{eq:vs}
+\end{equation}
+
+\begin {equation}
+	\tilde{V}_0 = 0
+	\label{eq:p1}
+\end{equation}
+\begin {equation}
+	\tilde{V}_4 = \tilde{V}_7
+	\label{eq:p2}
+\end{equation}
+\begin {equation}
+	\tilde{V}_5 - \tilde{V}_8 = K_d \frac{\tilde{V}_0 - \tilde{V}_4}{R_6}
+	\label{eq:p3}
+\end{equation}
+\begin {equation}
+	\tilde{V}_1 - \tilde{V}_0 = \tilde{V}_s
+	\label{eq:p4}
+\end{equation}
+\begin {equation}
+	\frac{\tilde{V}_2-\tilde{V}_1}{R_1} + \frac{\tilde{V}_2 - \tilde{V}_5}{R_3} + \frac{\tilde{V}_2 - \tilde{V}_3}{R_2} = 0
+	\label{eq:p5}
+\end{equation}
+\begin {equation}
+	\frac{\tilde{V}_3-\tilde{V}_2}{R_2} - K_b(\tilde{V}_2-\tilde{V}_5)  = 0
+	\label{eq:p6}
+\end{equation}
+\begin {equation}
+	\frac{\tilde{V}_1-\tilde{V}_2}{R_1} + \frac{\tilde{V}_0-\tilde{V}_4}{R_6} + \frac{\tilde{V}_0-\tilde{V}_5}{R_4} = 0
+	\label{eq:p7}
+\end{equation}
+\begin {equation}
+	K_b(\tilde{V}_2-\tilde{V}_5) + \frac{\tilde{V}_6-\tilde{V}_5}{R_5} + \frac{\tilde{V}_6-\tilde{V}_8}{Z}  = 0
+	\label{eq:p8}
+\end{equation}
+\begin {equation}
+	\frac{\tilde{V}_4-\tilde{V}_0}{R_6} + \frac{\tilde{V}_7 - \tilde{V}_8}{R_7} = 0
+	\label{eq:p9}
+\end{equation}
+\begin {equation}
+	\tilde{V}_x = \tilde{V}_6 - \tilde{V}_8
+	\label{eq:p10}
+\end{equation}
+
+
+The complex amplitudes of the phasors are presented in  \textbf{Table ~\ref{tab:equivalent resistor}}
+\begin{table}[H]
+  \centering
+  \begin{tabular}{|l|r|}
+    \hline    
+    {\bf Name} & {\bf Complex amplitude voltage}\\ \hline
+    \input{phasor_tab}
+  \end{tabular}
+  \vspace{10px}
+  \caption{Complex amplitudes in all nodes in Volts}
+  \label{tab:equivalent resistor}
+\end{table}
+\vspace{10cm}
+
+\pagebreak
+%point 5
+\subsection{Final total solution V6(t)}
+In this section the final total solution $V_6$ for a frequency of 1KHz is determined using the natural and forced solutions determined in previous sections ($V_6$=$V_{n6}$+$V_{6f}$). In {Figure:~\ref{fig:theo5}} the voltage of the independent source $V_{s}$ and the voltage of $V_{6}$ were plotted for the time interval of [-5,20] ms. 
+\begin{figure}[H] \centering
+\includegraphics[width=0.60\linewidth]{theo5_tab.pdf}
+\vspace{10px}
+\caption{Voltage of $V_{6}(t)$ and $V_{s}(t)$ as functions of time from [-5,20] ms}
+\label{fig:theo5}
 \end{figure}
 
-After finding all the nodes we now assigne a number, and an unknown voltage based on the comparision with the voltage of node 0 (v0=0V). To start solving the circuit we have to use the Kirchoff Current Law (KCL) to all the nodes that do not have a voltage source connected to them, in node 2 (9), 3 (10), 5 (11) and 6 (12):
-\begin{equation}
-  \frac{v_2-v_1}{R_1} + \frac{v_2-v_3}{R_3} + \frac{V_b}{R_3} = 0;
-  \label{eq:Node2}
-\end{equation}
-\begin{equation}
-  I_b + \frac{v_2-v_3}{R_2} = 0	
-  \label{eq:Node3}
-\end{equation}
-\begin{equation}
-  \frac{v_4-v_5}{R_5} - I_b + I_d = 0
-  \label{eq:Node5}
-\end{equation}
-\begin{equation}
-  I_c + \frac{v_7-v_6}{R_7} = 0
-  \label{eq:Node6}
-\end{equation}
-
-For the voltage sorces we can write equations that relate them with the voltage assigned to the nodes, (13) and (14):
+\subsection{Frequency responses $v_c(f)$, $v_s(f)$ and $v_6(f)$ for frequency range 0.1 Hz to 1 MHz}
+\label{ref}
+For this section, it was considered that $v_s( t) = sin( 2 \pi f t )$.
+This circuit will act aproximatly as a low pass-filter. This means when the frequency is low the capacitor has a long time to charge up, then acting as an open circuit, and achieving praticly the same voltage as the input, therefore, there is a considerable voltage drop between node 6 and 8 and the capacitor will remane almost in phase with the voltage source.\par For high frequences the oposite is seen. The capacitor will have no time to charge before the input changes direction, so it will act as a short-circuit with almost no potential drop. Therefore, the capacitor will end up having a very diferent phase from the imput source as can be confirmed in the graphs bellow. This will be noted for frequences greater then the cutoff frequence ($f_c = \frac{1}{2.\pi.\tau}$). With our data $f_c$ is close to 50Hz, this is also the section of the graphs where we can see a drop in potencial for the capacitor and a big difference in phase start to show up.
+Simplifying this circuit to something close to its Thevenan equivalent, using only $V_{eq}$, $R_{eq}$ and a Capacitor leads to the following equations, allowing for a better understanding of the phase and magnitude decrease as the frequency increases:
 
 \begin{equation}
-  v_1 - v_0 = V_a
-  \label{eq:N_Va}
+  V_c = \frac{V_s}{\sqrt{1 + (R_{eq}.C.2\pi.f)^2}}
+  \label{eq:freqresp1}
 \end{equation}
-\begin{equation}
-  v_4 - v_7 = V_c
-  \label{eq:N_Vc}
-\end{equation}
-
-The dependent current source and voltage source equations can also be used to solve the system, (15) and (16):
 
 \begin{equation}
-  V_c = K_cI_c
-  \label{eq:VcIc}
+  \phi_{V_c} = -\frac{\pi}{2} + arctan(R_{eq}.C.2\pi.f)
+  \label{eq:freqresp2}
 \end{equation}
-\begin{equation}
-  I_b = K_bV_b
-  \label{eq:IbVb}
-\end{equation}
+\begin{figure}[H] \centering
+\includegraphics[width=0.8\linewidth]{freq_resp_tab.pdf}
+\vspace{10px}
+\caption{Graph for amplitude frequency response, in dB, of $V_c$, $V_6$ and $V_s$ for frequencies ranging from 0.1Hz to 1MHz (logarithmic scale).}
+\label{fig:freq_resp}
+\end{figure}
 
 
-Using Ohm’s Law, we find the relation (17), and by direct analysis we can also write (18):
-\begin{equation}
-  I_c = \frac{v_0-v_6}{R_6}
-  \label{eq:Ic}
-\end{equation}
-\begin{equation}
-  v_b = v_2 - v_4
-  \label{eq:Vb}
-\end{equation}
 
-We also define v0 as tne node connected to ground, as previously mentioned, (19):
-\begin{equation}
-  v_0 = 0.
-  \label{eq:v0}
-\end{equation}
-
-Because we need one more equation to solve the linear system we take advantage of the fact that the voltage sources don't alter the current, and so we can treat nodes 0 and 1 as one big node to write the equation, (20):
-
-\begin{equation}
-  \frac{v_4-v_0}{R_4} + \frac{v_2-v_1}{R_1} - I_c = 0;
-  \label{eq:BNode}
-\end{equation}
+\begin{figure}[H] \centering
+\includegraphics[width=0.8\linewidth]{angle_tab.pdf}
+\vspace{10px}
+\caption{Graph for the phase response, in degrees of $V_c$, $V_6$ and $V_s$ for frequencies ranging from 0.1Hz to 1MHz, displayed in a logarithmic scale. The phase of $V_6$ is actually continuous, and the reason for the apparent discontinuity in the graph is because of the domain of the arctan function - $D_{arctan}$ = ]-180, 180].}
+\label{fig:angle_resp}
+\end{figure}
 
 
-Now we use octave to determine the final solution of the system:
-
-\begin{table}[h]
-  \centering
-  \begin{tabular}{|l|r|}
-    \hline    
-    {\bf Name} & {\bf Value [A or V]} \\ \hline
-    \input{../mat/Nos_tab}
-  \end{tabular}
-  \caption{Variables in the Nodal Method. A variable preceded by @ is of type {\em current} and expressed in Ampere; other variables are of type {\em voltage} and expressed in Volt.}
-  \label{tab:nos}
-\end{table}
-
-\clearpage
 

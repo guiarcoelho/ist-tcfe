@@ -1,0 +1,39 @@
+*-------------------------------------------------------
+* NGSPICE simulation script
+*
+
+* forces current values to be saved
+.options savecurrents
+
+*resistors
+.INCLUDE data_simeq.txt
+.INCLUDE datav6v8.txt
+.control
+
+*makes plots in color
+set hcopypscolor=0
+set color0=white
+set color1=black
+set color2=red
+set color3=blue
+set color4=violet
+set color5=rgb:3/8/0
+set color6=rgb:4/0/0
+
+op
+
+echo "********************************************"
+echo  "Operating point"
+echo "********************************************"
+
+echo  "opeq_TAB"
+print all
+print v(6)-v(8)
+print (v(6)-v(8))/vx#branch
+echo  "opeq_END"
+
+
+quit
+.endc
+
+.end
