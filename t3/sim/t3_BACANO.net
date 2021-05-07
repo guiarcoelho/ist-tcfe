@@ -1,0 +1,82 @@
+*Values
+*Units for the values: V, mA, kOhm and mS
+
+* forces current values to be saved
+.options savecurrents
+
+***Fonte dependente
+Vs 1 3 0 sin(0 15 50 0 0 90)
+
+***Full Wave Rectifier***
+Dtl 1 2 Default
+Dtr 3 2 Default
+Dbl 0 3 Default
+Dbr 0 1 Default
+*Rrect 2 3 5k
+
+***Envelope detector***
+R1 2 0 10k
+C 2 0 10u
+
+***Voltage regulator***
+R2 2 5 1k
+Dr1 5 0 Default_n
+
+.model Default D
+.model Default_n D (n=19)
+.op
+.end
+
+.tran 50m 200m
+
+.control
+
+*makes plots in color
+set hcopypscolor=0
+set color0=white
+set color1=black
+set color2=red
+set color3=blue
+set color4=violet
+set color5=rgb:3/8/0
+set color6=rgb:4/0/0
+
+*3)
+
+*4) 
+echo "********************************************"
+echo  "Transient analysis"
+echo "********************************************"
+tran 1e-5 0.2 
+
+***Average***
+meas tran yavg AVG v(5) from=50m to=250m
+
+*** max and min v0***
+meas tran ymax MAX v(5) from=50m to=250m
+meas tran ymin MIN v(5) from=50m to=250m
+
+let vripple_reg = ymax - ymin
+
+print yavg ymax ymin vripple_reg
+
+plot  v(2)
+hardcopy vrect.ps v(2)-v(3)
+echo vrect_FIG
+
+plot  v(5)
+hardcopy vout.ps v(5)
+echo vout_FIG
+
+*5)
+plot v(5)-12
+hardcopy var_output.ps v(5)-12
+echo var_output_FIG
+
+
+plot v(1)-v(3) v(2) v(5)
+hardcopy vs_vout.ps v(1)-v(3) v(2) v(5)
+echo vs_vout_FIG
+
+quit
+.endc
