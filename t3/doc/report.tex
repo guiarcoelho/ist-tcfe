@@ -12,16 +12,16 @@
 \usepackage[english]{babel} % <<<<< English
 \usepackage{notoccite}
 \usepackage[skip=0.5\baselineskip]{caption}
-%\hyphenation{GTKWave}
+\hyphenation{GTKWave}
 \usepackage{listings}
 \usepackage[all]{nowidow}
+\usepackage{float}
+\usepackage{tabularx}
 \usepackage{amsmath}
-\usepackage{placeins}
-\usepackage{siunitx}
-
+\usepackage[dvipsnames]{xcolor}
 
 %blind text
-%\usepackage{lipsum}
+\usepackage{lipsum}
 
 \usepackage{graphicx}
 \graphicspath{ {./} {../../figlib/} }
@@ -42,7 +42,7 @@
 \renewcommand{\sfdefault}{phv}
 \usepackage{geometry}	
 \geometry{verbose,tmargin=2.5cm,bmargin=2.5cm,lmargin=2.5cm,rmargin=2.5cm}
-\usepackage{mathtools}	
+
 %\usepackage{setspace}
 %\renewcommand{\baselinestretch}{1.5}
 
@@ -76,7 +76,7 @@
 \usepackage[numbers,sort&compress]{natbib} % <<<<< References in numbered list [1],[2],...
 \usepackage{subcaption} 
 \usepackage{mdframed}
-\usepackage{float}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %     Begin Document                                                   %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -94,7 +94,6 @@
 %  Cover page
 % ----------------------------------------------------------------------
 \input{frontcover}
-
 
 % ----------------------------------------------------------------------
 % Dedication page (optional)
@@ -121,10 +120,9 @@
 % ----------------------------------------------------------------------
 
 % Table of contents
-\pagebreak
+%
 \tableofcontents
-\vspace{15cm}
-\pagebreak
+
 % List of tables
 %\addcontentsline{toc}{section}{\listtablename}
 %\listoftables
@@ -143,12 +141,13 @@
 % ----------------------------------------------------------------------
 %  Body
 % ----------------------------------------------------------------------
-\pagebreak
+
 \input{intro}
 
-\input{analysis}
 \input{simulation}
-\pagebreak
+
+\input{analysis}
+
 \input{conclusion}
 %\cleardoublepage
 
@@ -162,4 +161,3 @@
 % ----------------------------------------------------------------------
 \end{document}
 % ----------------------------------------------------------------------
-

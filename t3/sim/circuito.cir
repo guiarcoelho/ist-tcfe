@@ -1,0 +1,133 @@
+*
+* NGSPICE simulation script
+* T3
+*
+
+* forces current values to be saved
+.options savecurrents
+
+*Circuit description
+
+*AC In and transformer description
+VIN n1 0 SIN(0 230 50 0 0)
+F1 n1 0 E2 14
+E2 n2 0 n1 0 0.071429
+
+*Diodos
+D1 n2 n4 Default
+D2 0 n4 Default
+D3 n3 0 Default
+D4 n3 n2 Default
+
+*Envelope Detector
+R1 n4 n3 26k
+C0 n4 n3 26u
+
+*Voltage Regulator
+R2 n4 n5 7.15k
+D5 n5 n6 Default
+D6 n6 n7 Default
+D7 n7 n8 Default
+D8 n8 n9 Default
+D9 n9 n10 Default
+D10 n10 n11 Default
+D11 n11 n12 Default
+D12 n12 n13 Default
+D13 n13 n14 Default
+D14 n14 n15 Default
+D15 n15 n16 Default
+D16 n16 n17 Default
+D17 n17 n18 Default
+D18 n18 n19 Default
+D19 n19 n20 Default
+D20 n20 n21 Default
+D21 n21 n22 Default
+D22 n22 n23 Default
+D23 n23 n24 Default
+V0 n24 n3 0
+
+.model Default D
+
+.op
+
+.end
+
+.control
+
+*makes plots in color
+set hcopypscolor=0
+set color0=white
+set color1=black
+set color2=red
+set color3=blue
+set color4=violet
+set color5=rgb:3/8/0
+set color6=rgb:4/0/0
+
+
+echo "********************************************"
+echo  "Transient analysis"
+echo "********************************************"
+tran 5e-5 2e-1 2e-2
+
+hardcopy transient1.ps v(n5)-v(n3) mean(v(n5)-v(n3))
+echo transient1_FIG
+
+echo  "average_TAB"
+print mean(v(n5)-v(n3))
+echo  "average_END"
+
+echo  "ripple_TAB"
+print maximum(v(n5)-v(n3))-minimum(v(n5)-v(n3))
+echo  "ripple_END"
+
+echo  "outros_TAB"
+print mean(v(n5)-v(n3))
+print maximum(v(n5)-v(n3))-minimum(v(n5)-v(n3))
+print mean(I(V0))
+print mean(v(n3))
+print maximum(v(n4)-v(n3))
+print minimum(v(n6)-v(n5))
+*print all
+echo  "outros_END"
+
+echo "********************************************"
+echo  "Transient analysis"
+echo "********************************************"
+tran 5e-5 2e-1 2e-2
+
+hardcopy transient2.ps v(n4)-v(n3)
+echo transient2_FIG
+
+echo "********************************************"
+echo  "Transient analysis"
+echo "********************************************"
+tran 5e-5 2e-1 2e-2
+
+hardcopy transient3.ps v(n5)-v(n3) 
+echo transient3_FIG
+
+echo "********************************************"
+echo  "Transient analysis"
+echo "********************************************"
+tran 5e-5 2e-1 2e-2
+
+hardcopy transient4.ps v(n4)-v(n3) v(n5)-v(n3) 0
+echo transient4_FIG
+
+echo "********************************************"
+echo  "Transient analysis"
+echo "********************************************"
+tran 5e-5 2e-1 2e-2
+
+hardcopy transient5.ps v(n5)-v(n3)-12
+echo transient5_FIG
+
+echo  "meanv012_TAB"
+print mean(v(n5)-v(n3)-12)
+echo  "meanv012_END"
+
+quit
+
+
+.endc

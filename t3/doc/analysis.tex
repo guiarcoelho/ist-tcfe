@@ -1,101 +1,90 @@
 \section{Theoretical Analysis}
 \label{sec:analysis}
 
-In this section, the circuit shown in \textbf{Figure~\ref{fig:diagram_t3}} is analysed
-theoretically.
+In the theoretical analyses we apply Kirchoff's Laws and diodes equatins to calculate the obtained results. It's important to differ the Evelope Detector (whose function is to restrict voltage's amplitude) from the Voltage Regulator (whose purpose is to decrease the ripple).
+\subsection{Envelope detector}
+The envelope detector is composed of  a resistance and  capacitor in parallel. It decreases the ripple according to the following expression:\par
+\begin{equation}
+    v_0(t) = Acos(\omega t_{off})^{\frac{-t+t_{off}}{RC}}
+\end{equation}\par
+Where: \par
+\begin{itemize}
+  \item A - Amplitude
+  \item $\omega$ - angular frequency
+  \item R - Resistance, constant obtained using the following expression:
+\end{itemize}
+\begin{equation}
+    R = R_3 + rd_n 
+\end{equation}\par
+\begin{itemize}
+  \item $R_3$ - Resistence in serie
+  \item $rd_n$ - Resistence in all diodes,  wich currespondes to 23*$r_d$ (the resistance in each diode)
+\end{itemize}
+\begin{itemize}
+  \item C - Capacitance
+  \item $t_{off}$ - Constant obtained using the following expression:
+\end{itemize}
+\begin{equation}
+    t_{off}=\frac{1}{\omega}arctan(\frac{1}{\omega RC})
+\end{equation}\par
+
 \begin{figure}[H] \centering
-\includegraphics[width=0.5\linewidth]{diagram_t3.pdf}
-\vspace{-6cm}
-\caption{Diagram of the circuit considered for the computations and simulations.}
-\label{fig:diagram_t3}
+\includegraphics[width=0.7\linewidth]{../mat/retified.pdf}
+\caption{Rectified Signal.}
+\label{fig:rectified}
 \end{figure}
 
-The ratio n:1 means that the initial current amplitude will be n times bigger then the resulting one, so we can place a voltage source in the right segment of the circuit in the terminals of the transformer, wich will have a current of A/n and keep the same frequency as the initial source.
+\begin{figure}[H] \centering
+\includegraphics[width=0.7\linewidth]{../mat/envelope.pdf}
+\caption{Envelope Detector Output Voltage.}
+\label{fig:envelopeth}
+\end{figure}
 
-The output of the transformer will be the input of our Envelope detector. The Envelope Detector circuit is made up of a rectifier and a capacitor. The rectifier is a full-wave bridge rectifier circuit and is composed of 4 diodes and a resistor. The full-wave rectifier was used as oposed to a half-wave rectifier because the full-wave rectifier allows us to reduce the ripple without increasing the time constant, which will avoid a big raise in costs. The full-wave rectifier reduces the ripple because the voltage that comes out of the transformer will leave the rectifier oscillating at twice the frequency, which helps us in our ripple problem, by reducing the period corresponding to the wave ripple.
+\subsection{Voltage Regulator}
+The voltage regulator is composed by 19 diodes in series that will impose the 12V voltage. The resistance in series will decrease the amplitude.\par
+The expressions used to do this were the following ones:\par
+Sinusoidal part from envelope:\par
+\begin{equation}
+    v_{sr} = v_O - V_s
+\end{equation}\par
+And then, we have: \par
+\begin{equation}
+    vO_r = (\frac{rd_n}{rd_n + R_3})v_{sr}
+\end{equation}\par
+The expression used to obtain the vltage ripple was: \par
+\begin{equation}
+    v_{ripple} = maximum(V_{dc})-minimum(V_{dc})
+\end{equation}\par
+Where: \par
+\begin{equation}
+    V_{dc} = 21V_{on} + vO_r
+\end{equation}\par
+The results are shown below:\par
 
-The output of the Envelope Detector will be the input of the Voltage Regulator. The voltage regulator is made up of 40 diodes, two series of twenty diodes in parallel (as this proved to be an inexpensive way to reduce by half the equivalent incremental resistance of the regulator's diodes, and thus minimize ripple even more) and one resistance. The resistance is in series with the paralel of 2 rows of 20 diodes each. The diodes in each row are in series. The output of the paralel of diodes is the output of the AC/DC converter.
+\begin{figure}[H] \centering
+\includegraphics[width=0.7\linewidth]{../mat/outputdc.pdf}
+\caption{DC Output Signal.}
+\label{fig:outputdc}
+\end{figure}
 
-In the Envolope Detector the diode model used has an ideal diode and an voltage source while in the Voltage Regulator de Diode model has an ideal diode, a voltage source and a resistor. Do note that the voltage Von for this diode model was obtained by dividing the the output voltage of the Ngspice simulation by the number of diodes in series, in order to achieve a more realistic model for the theoretical analysis. This yielded Von = 0.6, a slight deviation from the standard Von = 0.7 generally used.
+\begin{figure}[H] \centering
+\includegraphics[width=0.7\linewidth]{../mat/v012.pdf}
+\caption{Output Signal - 12 (deviation).}
+\label{fig:v012}
+\end{figure}
 
-The ratio of the transformer and the values of the resistors, the capacitor and nº of diodes are presented in the following table, along with a side-by-side comparison of the corresponding results (ripple, average, merit) in the theoretical analysis (right) and the Ngspice simulation (left).
-
-\hfill
- \parbox{1\linewidth}{
+\begin{table}[H]
   \centering
-  \begin{tabular}{|l|l|l|r|}
+  \begin{tabular}{|l|r|}
     \hline    
-    {\bf Parameter} & {\bf Simulation} & {\bf Theoretical } & {\bf Units }\\ \hline
-    \input{merit.tex}
+    {\bf Name} & {\bf Value [V]} \\ \hline
+    \input{../mat/ripple_octave}
   \end{tabular}
-  \label{tab:results}
-    %\caption{Side-by-side comparison of the circuit parameters (resistors, capacitors, etc) and the corresponding results (ripple, average, merit)}
-    
+  \label{tab:ripple}
+\end{table}
 
-  }
-    The only difference is in the ripple value, given the Von parameter for the thoeretical model was derived from the simulation results - this accounts for the perfect fit between the simulated and predicted average output voltages. As such, the merit figures differ given the ripple value is found in denominator - this means that, despite the ripple deviation being in the order of microvolts, this deviation is amplified in the merit formula. In adition, the precision of octave and ngspice floating point is different, which may account for part of the differences found. But more importantly, the difference obtained was mainly due to the fact that the models
-used for the diodes in the theorethical analysis differ from those used by Ngspice. The diode
-model used by Ngspice is way more complex than the one implemented theoretically.
-  
-  The next figures present the plots required, resulting solely from the theoretical analysis.
-
-%In \textbf{Table~\ref{tab:theoretical}} the values for the branch currents and the node voltages obtained from the Octave script for both methods are presented. Here, the node voltages in the mesh method were computed from the respective currents, which were determined as described in the previous subsection.
-
-
-
-\subsection{Output of the voltage regulator circuit, compared with the input sinusoidal voltage and the envelope detector voltage}
-
-\par
 \begin{figure}[H] \centering
-\includegraphics[width=0.6\linewidth]{all_vout.eps}
-\caption{Output of the voltage regulator circuit (yellow), compared with the input sinusoidal voltage (blue) and the envelope detector voltage (red)}
-\label{fig:all_vout}
+\includegraphics[width=0.7\linewidth]{../mat/ripple.pdf}
+\caption{Ripple.}
+\label{fig:ripplegraph}
 \end{figure}
-
-
-\subsection{Output of the Envelope Detector (acting on the output of the full-wave rectifier)}
-
-\par
-\begin{figure}[H] \centering
-\includegraphics[width=0.6\linewidth]{envelope.eps}
-\caption{Output of the Envelope Detector (acting on the output of the full-wave rectifier)}
-\label{fig:envelope}
-\end{figure}
-
-
-
-\par
-\begin{figure}[H] \centering
-\includegraphics[width=0.6\linewidth]{regulator.eps}
-\caption{Output of the voltage regulator circuit, so as to visualize the ripple effect in greater detail}
-\label{fig:regulator}
-\end{figure}
-
-\par
-\begin{figure}[H] \centering
-\includegraphics[width=0.6\linewidth]{deviation.eps}
-\caption{($v_O$ – 12) (output AC component + DC deviation)}
-\label{fig:deviation}
-\end{figure}
-
-
-%\begin{figure}[H] \centering
-%\includegraphics[width=0.9\linewidth]{natural_tab.pdf}
-%\caption{Natural response of $V_6$ as a function os time in the interval from [0,20] ms}
-%\label{fig:natural}
-%\end{figure} 
-
-
-
-%\begin{figure}[H] \centering
-%\includegraphics[width=0.9\linewidth]{freq_resp_tab.pdf}
-%\caption{Graph for amplitude frequency response, in dB, of $V_c$, $V_6$ and $V_s$ for frequencies ranging from 0.1Hz to 1MHz (logarithmic scale).}
-%\label{fig:freq_resp}
-%\end{figure}
-
-
-
-
-\pagebreak
-
-

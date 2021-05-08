@@ -1,25 +1,27 @@
-all: ngspice_auto.log
+# ---------------------------------------------------------
+# type "make" command in Unix to create report.pdf 
+# ---------------------------------------------------------
+
+all: ngspice
+
+ngspice: ../doc/ngspice.log
 	$(eval NGSFIGS=$(shell grep _FIG $< | sed 's/_FIG//g' | sed ':a;N;$!ba;s/\n/ /g'))
 	$(eval NGSFIGPS=$(addsuffix .ps, $(NGSFIGS)))
-	$(foreach i, $(NGSFIGPS), ps2pdf $i;)
 	$(eval NGSTABS=$(shell grep _TAB $< | sed 's/_TAB//g' | sed ':a;N;$!ba;s/\n/ /g'))
-	$(foreach i, $(NGSTABS), sed -n '/^$i_TAB/,/^$i_END/{p;/^$i_END/q}' $< | grep -v $i_TAB | grep -v $i_END | grep -v '#' | sed 's/\=/\&/g' | sed 's/$$/\\\\ \\hline/g' > $i_tab.tex;)
-	
-	
-	mv vo_menos_12.pdf ../doc
-	mv vout.pdf ../doc
-	mv vs_vout_venv.pdf ../doc
-	mv vrect.pdf ../doc
+	$(foreach i, $(NGSTABS), sed -n '/^$i_TAB/,/^$i_END/{p;/^$i_END/q}' $< | grep -v $i_TAB | grep -v $i_END | grep -v '#' | sed 's/\=/\&/g' | sed 's/$$/\\\\ \\hline/g' > ../doc/$i_tab.tex;)
+	$(foreach i, $(NGSFIGPS), ps2pdf $i;)
 
-	
-ngspice.log: ../sim/t3.net 
-	ngspice -b $< -o $@
-	
-ngspice_auto.log: ../sim/t3_pontuacao.net
+../doc/ngspice.log: circuito.cir
 	ngspice -b $< -o $@
 	
 	
 clean:
-	@rm -f *.log *.tex *.pdf *.ps *~
-	@rm -f *.txt
-.PHONY: all clean
+	@rm -f sim1data.cir
+	@rm -f sim2data.cir
+	@rm -f sim3data.cir
+	@rm -f sim45data.cir
+	@rm -f *.tex
+	@rm -f *.ps
+	@rm -f *.pdf
+	
+.PHONY: clean

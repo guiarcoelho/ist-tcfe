@@ -1,15 +1,23 @@
-all: octave.log
-	mv all_vout.eps ../doc
-	mv deviation.eps ../doc
-	mv envelope.eps ../doc
-	mv regulator.eps ../doc
+# ------------------------------------------------------------
+# type "make" command in the Linux terminal create report.pdf
+#
+# type "make clean" to delete all generated files
+# ------------------------------------------------------------
 
-octave.log: acdc_converter.m
+all: | ../doc/octave.log convert
+
+../doc/octave.log: acdc_thunderstruck.m
 	octave $< > $@
+	
+convert: 
+	ls *.eps | awk '{system("epstopdf "$$0 )}'
 
 clean:
-	@rm -f octave.log octave-workspace *.eps *~
-	@rm -f data*
-	@rm -f *_tab.tex result_octave.txt
+	@rm -f *.tex
+	@rm -f *.txt
+	@rm -f *.cir
+	@rm -f *.eps
+	@rm -f *.pdf
 	
 .PHONY: clean
+
