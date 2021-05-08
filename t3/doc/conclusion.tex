@@ -1,0 +1,10 @@
+\section{Conclusion}
+\label{sec:conclusion}
+
+In this laboratory assignment, the objective of creating a circuit that transforms an input AC voltage of 230V and frequency 50 Hz to a usable output DC voltage of 12V with minimun cost and ripple has been achieved.\par
+The circuit created was analysed theoretically using the Octave maths tool, and by circuit simulation, using the
+Ngspice tool. The theoretical results obtained are very close to the simulation results. The slight difference obtained was mainly due to the fact that the models used for the diodes in the theoretical analysis differ from those used by Ngspice. The diode model used by Ngspice is way more complex than the one implemented theoretically. However due to the overall satisfactory match we can say that the theoretical model is acceptable due to its low complexity and its good results. Note that the main deviation occurred in the ripple computation - the predicted ripple was smaller than the actual ripple encountered in the simulations.\par
+ For more complex circuits, the
+theoretical and simulation models could differ even more, given that the greater complexity of the models implemented by the simulator Ngspice, as well as the interactions between these, which will be more noticeble when compared to the results obtained using the simpler models studied in the theoretical classes.\par
+The final value settled on for the Merit was 16.0613 using the Ngsice's results and 23.2915 using Octave's theoretical results. This may seem like a great discrepancy, but is in fact fully explained by the difference in precision between the ngspice floating point numbers and the octave floating point, along with the the different ripple encountered between simulation and theory.
+
