@@ -1,9 +1,7 @@
 \section{Theoretical and Simulation Analysis}
 \label{sec:analysis}
 
-In order to compare \textit{side by side}, we'll discuss the theoretical and simulation analysis at the same time.
-
-However, one has to present and analyse the two stages in order to fully understand the simulation. The constants values used are expressed in the table below.
+We will be dealing with the simulation and theoretical analysis at the same time. Next we present a table of constans that will be used.
 
 \begin{table}[h]
     \centering
@@ -26,75 +24,55 @@ However, one has to present and analyse the two stages in order to fully underst
 \subsection{Gain Stage}
 \label{subsec:stat}
 
-Firstly, we must discuss the first half of the circuit that was used. Its goal is to ensure a high input voltage so the input signal is not degradated or distorted throughout the circuit. It also has an elevated gain associated, so this is the part that is responsible for the signal amplification.
+The Gain Stage of the circuit is responsible for insuring a high input voltage so the input signal is not degradated through the circuit. It has ana elevated gain and is the part responsible for signal amplification.
 
-A scheme of this circuit is presented below.
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[scale=0.4]{gain_stage_l4.pdf}
-    \caption{Gain Stage}
-    \label{fig:gain_stage}
-\end{figure}
-
-As one can see, there are 3 types of elements: a NPN BJT, resistors and capacitors.
+There are 3 types of elements: a NPN BJT, resistors and capacitors.
 
 The first capacitor, $C_{in}$, is a coupling capacitor, as it acts as a DC Block, so that $V_{in}$ doesn't impose a DC component of 0, that would change the OP of the transistor.
 
 The second capacitor, $C_E$, acts as a bypass capacitor, for it ensures that for low frequencies all the current flows through $R_E$, and for high frequencies, it passes through the capacitor.
 
-Generally, the output impedance of this stage ($Z_{O1}$) is high, when compared with the load, being the major reason why one cannot use just this stage, and we need another one.
+The output impedance of this stage ($Z_{O1}$) is high.
 
 \subsection{Output Stage}
 
-As we could see in the previous section, the Gain Stage has a high $Z_{O1}$. For that reason, we connect a second circuit to the output of the Gain Stage, that presents a low output impedance.
+The Gain Stage has a high $Z_{O1}$ soto counter this, we connect a circuit with low output impedance to the first one. This circuit presents similar components but with very distinct results.
 
-A scheme of this stage is presented below, 
-
-\begin{figure}[h]
-    \centering
-    \includegraphics[scale=0.5]{output_stage_l4.pdf}
-    \caption{Output Stage}
-    \label{fig:regulator}
-\end{figure}
-
-As one can see, this circuit presents similar components, however, with mild differences.
-
-Instead of a NPN BJT, we use a PNP BJT, because it has a higher $\beta_F$, which lowers the output impedance (which is what we want). Besides, it illustrates the use of another BJT transistor.
+Instead of a NPN BJT, we use a PNP BJT, because it has a higher $\beta_F$, which lowers the output impedance. 
 
 Another capacitor, $C_o$, is used with a similar goal as the previous coupling capacitor. If we didn't use such component, the gain stage would impose a DC voltage of 0 to the second stage, which would ruin the transistor's OP. 
 
-As we'll see, we end up with a lower output impedance in this stage (when compared to the load) and a higher input impedance (when compared to the output impedance of the gain stage).
+As we'll see, we end up with a lower output impedance in this stage and a higher input impedance (when compared to the output impedance of the gain stage).
 
-When combining both stages, we need to ensure that there is a compatibility  between the impedances. In fact, by the voltage divider law, to make sure no voltage signal is lost, the input impedance of the second stage should be much greater than the output impedance of the first one. 
+When combining both stages, we need to ensure that there is a compatibility  between the impedances, the input impedance of the second stage should be much greater than the output impedance of the first one. 
 
-In conclusion, when we merge these two circuits, we end up with our BJT Amplifier as seen in Figure \ref{fig:circuitol4}.
 
 \clearpage
 \subsection{Theoretical Analysis}
 \label{subsec:Req}
 
+In the theoretical analysis we will evaluate the four impedances associated with the two stages ($Z_{I1}, Z_{O1}, Z_{I2}$ and $Z_{O2}$) and the two gains in each stage ($A_{V1}$ and $A_{V2}$).
+
 \subsubsection{Impedances}
 
-On the Theoretical side, we will evaluate the four impedances associated with the two stages ($Z_{I1}, Z_{O1}, Z_{I2}$ and $Z_{O2}$) as well as the two gains associated with each stage ($A_{V1}$ and $A_{V2}$).
-To do so, we need to perform an Operating Point Analysis to find the values necessary for the Incremental Analysis.
-
-Regarding the first stage (Gain Stage), the input and output impedances (\{$Z_{I1}$, $Z_{O1}$\}, respectively) can be derived by KVL and KCL, leading us to the following expressions:
+In the fist stage we can finde the input and output impedances (\{$Z_{I1}$, $Z_{O1}$\})using KVL and KCL.
 
 \begin{equation}
     Z_{I1}=R_B // r_{\pi 1}
 \end{equation}
 where $R_B=R_1 // R_2$.
 
-Because of the presence of the bypass capacitor and also because in this theorectical approach it is assumed the capacitors are short-circuited (high-frequency analysis), $R_E \simeq 0$. This first stage input impedance matches also with the total input impedance of the circuit, as this stage is load-independent.
 
-On the other hand, the first stage output impedance can be obtained by:
+We assume $R_E \simeq 0$ (capacitors are short-circuted). 
+The first stage input matches the total input impedance of the circuit.
+
+The first stage output impedance can be obtained by:
 
 \begin{equation}
     Z_{O1}=r_o // R_C  
 \end{equation}
 
-Regarding the second stage, by analysing the circuit we get:
+For the second stage, by analysing the circuit we get:
 
 \begin{equation}
     Z_{I2}=\frac{(g_{m2}+g_{\pi2}+g_{o2}+g_{E2})}{g_{\pi2}(g_{\pi2}+g_{o2}+g_{E2})}
@@ -123,20 +101,12 @@ The 4 values are presented below,
     \label{tab:theo_imp}
 \end{table}
 
-As a result of the compromise between the cost and overall performance, the total output impedance was unpurposely sacrified, which is of course not what we would desire (especially because the speaker impedance is 8 $\Omega$). 
+Remembering that $Z_{O1}$ needs to be  much lower than $Z_{I2}$, we end up with good results. This is needed so that there is no signal degradation or loss between these stages.
 
-As one can see, regarding the compatibility between both stages (remembering that $Z_{O1}$ needs to be  much lower than $Z_{I2}$), we have pretty satisfactory results. This is needed so that there is no signal degradation or loss between these stages. It's clear that $V_{in2}$ needs to be as close as possible to $V_{O2}$, confirmed if we apply a voltage divider with $Z_{I2}>>Z_{O1}$:
-
-\begin{equation}
-    V_{in2} = \frac{Z_{I2}}{Z_{I2}+Z_{O1}} V_{O2}. 
-\end{equation}
 
 \subsubsection{Gain}
 
-In order to calculate the total gain ($A_{V}$) we performed a simple multiplication, so that we have $A_V=A_{V1}A_{V2}$. Although being an approximation, the real interaction between both stages is negligible, and because of that we can compute the gain as if it was the total gain of both separate stages.
-
-We present a compilation of the values below,
-
+To calculate the total gain ($A_{V}$) we performed a simple multiplication $A_V=A_{V1}A_{V2}$. The real interaction between both stages is negligible, and so we can compute the gain as if it was the total gain of both separate stages.
 
 \begin{table}[h]
 \parbox{.4\linewidth}{
@@ -162,9 +132,9 @@ We present a compilation of the values below,
   }
   \end{table}
   
-Note that the first approximation considers $C_E$ to be short-circuited and the second one that $C_E$ behaves as an open circuit. The simulation results should bear within these two boundaries (as they actually do, see table \ref{tab:sim_results}) since the capacitor is never either \textit{SC} or \textit{OC}. These bounds as well as an approximation for the real gain will be plotted in Section \ref{subsec:comparison}.
 
-In order to acquire a better comparison between theory and simulation, besides this aproach, that considers the gain to be constant through all the frequencies , we also performed the \textit{Time constant method} for the lower cut-off frequency.
+
+To acquire a better comparison between theory and simulation, besides this aproach, that considers the gain to be constant through all the frequencies , we also performed the \textit{Time constant method} for the lower cut-off frequency.
 
 We calculate the lower cut-off frequency ($\omega_L=2\pi f_{CO_L}$) as,
 
@@ -189,10 +159,7 @@ We have,
     R_{eq_o}=R_L+Z_{O}
 \end{equation}
 
-One could also do the reciprocal, but with the capacitors as open circuits in order to determine the higher cut-off frequency.
-Like that, we just have to consider as approximation, a slope of $+20dB/dec$, until $f_{CO_L}$ is reached (which gives a better approximation than the constant gain one).
-
-The theoretical value of the lower cut-off frequency is presented in the table below and will be better analysed and compared in Section \ref{subsec:comparison}.
+The theoretical value of the lower cut-off frequency is presented in the table below.
 
 \begin{table}[h]
     \centering
@@ -350,7 +317,7 @@ In similarity with the theoretical analysis, the simulation gives off a slightly
 \subsection{Comparison}
 \label{subsec:comparison}
 
-We are now ready to make a global comparison of the two approaches, with the chosen values for the constants. Below, we present both the theoretical and simulation graphs of the gain:
+We are now going to compare theoretical and simulation values.
 
 \vspace{-2.5cm}
 
@@ -371,15 +338,11 @@ We are now ready to make a global comparison of the two approaches, with the cho
 \label{fig:Gain}
 \end{figure}
 
+Above we can see theoretical and simulation graphs of the gain.
+
 In this case, the comparison of the shape can only be done on the left side, since we don't have the theoretical higher cut-off frequency. For this reason, there's no point in plotting the theoretical gain any further than $1 MHz$.
 
-One should bear in mind that the theorectical analysis either considers the capacitors are short-circuited or are open-circuited (this approximation is made when for this analysis, the value of $R_E$ is either $0$ or $R_E$ in Table \ref{tab:constants}, respectively). For this reason, two estimates were made (Figure \ref{fig:Gain}) - in blue the capacitors are considered short-circuited; in orange the capacitors are considered open-circuited; in yellow dashed it is represented the medium-value plot, that can be considered as a rough approximation of the real gain. This theorectical approach does not guarantee a specific value for the overall gain, however it gives us a region of acceptable gains. The simulation gain obtained is satisfyingly in this prediction region. 
-
-The overall shape of the graphs is similar, noting that the theoretical one can be thought of as assymptotical rather than a precise approach. In fact, as we imposed its shape, accordingly to the one given by \textit{Ngspice}, it is not sensible to variations that might occur (as the appearance of a \textit{second step} in \ref{fig:RC_High}).
-
-In a greater detail analysis, when remembering the values presented in the previous subsections - $Z_I$ and $Z_O$, $A_v$ and $f_{CO_L}$ -, despite the obvious differences, the comparison is satisfactory. Comparing the order of magnitude, when putting values side by side, they are within reasonable intervals of similarity. In fact, the lower cut-off frequencies (from tables \ref{tab:theo_CO_freq} and \ref{tab:sim_results}) are really close, especially when you remember they are to be plotted in a logscale graph.
-
-In conclusion, the theoretical approach gives a rough perspective of the overall work conditions of the amplifier, which is good in a first \textit{sketch}.
+The theoretical analysis takes in acount that all capacitors are short-circuted or open-circuted, leading to two different plots one in blue and the other one in orange, respectively. This leaves us with a region of acceptance for the simulation gain, that fits in this region for the interval in study. The yellow plot is the average gain, wich should be a better approximation of the real gain. Considering both graphs we can also comment on their similar shape that confirmes the match of our theoretical aproach. Looking back on the studied values of each the theoretical and the simulation analysis ($Z_I$ and $Z_O$, $A_v$ and $f_{CO_L}$), we can confirm that they have the similar orders of magnitude, wich gives us an aproximation within reason.
 
 \section{Merit Results}
 \label{sec:merit}
