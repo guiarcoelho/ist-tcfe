@@ -1,0 +1,38 @@
+
+Circuit: l5 circuit
+
+false = 0.000000e+00
+true = 1.000000e+00
+boltz = 1.380620e-23
+c = 2.997925e+08
+e = 2.718282e+00
+echarge = 1.602190e-19
+i = 0.000000e+00,1.000000e+00
+kelvin = -2.73150e+02
+no = 0.000000e+00
+pi = 3.141593e+00
+planck = 6.626200e-34
+yes = 1.000000e+00
+Reducing trtol to 1 for xspice 'A' devices
+Doing analysis at TEMP = 27.000000 and TNOM = 27.000000
+
+
+
+No. of Data Rows : 7001
+
+The file "vodb_new.ps" may be printed on a postscript printer.
+maximo              =  4.169217e+01 at=  1.028016e+03
+fo                  =  1.028016e+03 with=  4.169217e+01
+gain_freq_sim_new_TAB
+AV = 40.7735 = dB
+fO = 1028.02 = Hz
+gain_freq_sim_new_END
+in_imp_new_TAB
+Input Imp = 500.706 + -725.317 j
+in_imp_new_END
+merit_new_TAB
+AV dev = 9.31408 = 
+Freq dev = 28.016 = Hz
+Cost = 13459.5 = MU
+Merit = 1.99026E-06 = 
+merit_new_END

@@ -1,0 +1,16 @@
+\babel@toc {english}{}
+\contentsline {section}{\numberline {1}Introduction}{2}{section.1}
+\contentsline {section}{\numberline {2}Theoretical and Simulation Analysis}{3}{section.2}
+\contentsline {subsection}{\numberline {2.1}High Pass Stage}{3}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Amplification Stage}{4}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}Low Pass Stage}{4}{subsection.2.3}
+\contentsline {subsection}{\numberline {2.4}Theoretical Analysis}{5}{subsection.2.4}
+\contentsline {subsubsection}{\numberline {2.4.1}Central Frequency}{5}{subsubsection.2.4.1}
+\contentsline {subsubsection}{\numberline {2.4.2}Impedances}{5}{subsubsection.2.4.2}
+\contentsline {subsubsection}{\numberline {2.4.3}Gain}{6}{subsubsection.2.4.3}
+\contentsline {subsection}{\numberline {2.5}Simulation Analysis}{7}{subsection.2.5}
+\contentsline {subsection}{\numberline {2.6}Comparison}{7}{subsection.2.6}
+\contentsline {section}{\numberline {3}Non-Improved Merit Results}{9}{section.3}
+\contentsline {section}{\numberline {4}Circuit Improvements}{9}{section.4}
+\contentsline {section}{\numberline {5}Improved Merit Results}{11}{section.5}
+\contentsline {section}{\numberline {6}Final Conclusion and General Notes}{11}{section.6}
