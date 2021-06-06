@@ -222,13 +222,11 @@ The tables with the simulated data are presented below.
 \subsection{Comparison}
 \label{subsec:comparison}
 
-We are now ready to make a global comparison of the two approaches, with the chosen values for the constants. In the following page, we present both the theoretical and simulation graphs of the frequency response of the gain and the phase.
+We will now compare the results obtained by the two approaches and, in order to do that, we present the graphs of the frequency response of the gain and the phase from both the theoretical and simulation analysis.
 
-Overall, we have pretty satisfactory results. When one performs an initial comparison of the gain response, using the shape of the graph, it is easy to realise that they have a similar behaviour. In the initial section, there is a constant slope of +20dB/dec; after that, there exists a small passband (its width is not aim of study in this laboratory), also the region where we achieve the central frequency, and a last part with a slope of -20dB/dec.
+In general we achieved very satisfactory results. Looking to the gain response graphs, we can perceive similarities in the shapes, beeing easy to realise that both have similar behaviours. In terms of the phase response, both plots differ. This is due a fault in our theoretical model wich doesn't predict the existence of capacitors in the OPAMP, idealising its gain to be purely real, where there's no shift in phase. When it comes to the tables presented above, we have small relative errors for the impedances, total gain and the central frequency. This shows that from a fairly simple model, we can predict the OPAMP behaviour, even though some of the elements are non-linear.
 
-When it comes to the phase response, both plots differ. This is because our theoretical model does not predict the existence of capacitors in the OPAMP, as it idealises its gain to be purely real (no shift in phase). In reality, because the OPAMP has two capacitors, it is expected that in the phase frequency response plot each would introduce a shift of -90º, making the overall phase to go down to -270º = +90º. 
 
-Remembering the tables presented above, we have small relative errors for the values of interest (the impedances, the total gain and the central frequency). This somehow proves that, eventhough the OPAMPs are made of dozens of components, some of them non-linear, we can predict with a fairly simple model its behaviour. 
 
 \begin{figure}[h]
 \centering
