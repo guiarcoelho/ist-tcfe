@@ -1,0 +1,14 @@
+\babel@toc {english}{}
+\contentsline {section}{\numberline {1}Introduction}{2}{section.1}
+\contentsline {section}{\numberline {2}Theoretical and Simulation Analysis}{3}{section.2}
+\contentsline {subsection}{\numberline {2.1}High Pass Stage}{3}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}Amplification Stage}{3}{subsection.2.2}
+\contentsline {subsection}{\numberline {2.3}Low Pass Stage}{3}{subsection.2.3}
+\contentsline {subsection}{\numberline {2.4}Theoretical Analysis}{4}{subsection.2.4}
+\contentsline {subsubsection}{\numberline {2.4.1}Central Frequency}{4}{subsubsection.2.4.1}
+\contentsline {subsubsection}{\numberline {2.4.2}Impedances}{4}{subsubsection.2.4.2}
+\contentsline {subsubsection}{\numberline {2.4.3}Gain}{5}{subsubsection.2.4.3}
+\contentsline {subsection}{\numberline {2.5}Simulation Analysis}{6}{subsection.2.5}
+\contentsline {subsection}{\numberline {2.6}Comparison}{6}{subsection.2.6}
+\contentsline {section}{\numberline {3}Merit Results}{8}{section.3}
+\contentsline {section}{\numberline {4}Conclusion}{8}{section.4}
